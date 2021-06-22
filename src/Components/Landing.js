@@ -1,9 +1,11 @@
 import React from 'react';
 
-export function Landing() {
+function Landing() {
     return (
         <div>
             Landing Component
         </div>
     )
 }
+
+export default Landing
