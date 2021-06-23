@@ -3,6 +3,7 @@ import routes from './routes';
 import { withRouter } from 'react-router-dom';
 
 import './App.css'
+import 'normalize.css'
 
 function App() {
   return (
