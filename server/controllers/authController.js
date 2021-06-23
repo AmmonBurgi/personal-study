@@ -5,7 +5,7 @@ module.exports = {
         const db = req.app.get('db');
         const {firstName, lastName, email, password} = req.body
 
-        const user = await db.auth.check_user(email);
+        const user = await db.authentication.check_user(email);
         if(user[0]){
             return res.status(401).send('Email already in use!')
         }
@@ -13,7 +13,7 @@ module.exports = {
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt);
 
-        const newUser = await db.auth.register_user(firstName, lastName, email, hash);
+        const newUser = await db.authentication.register_user(email, firstName, lastName, hash);
         req.session.user = newUser[0];
         res.status(201).send(req.session.user);
     },
@@ -21,7 +21,7 @@ module.exports = {
         const db = req.app.get('db')
         const {email, password} = req.body;
 
-        const user = await db.auth.check_user(email);
+        const user = await db.authentication.check_user(email);
         if(!user[0]){
             return res.status(401).send('Email or Password are not accepted!')
         }
