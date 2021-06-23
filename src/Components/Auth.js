@@ -1,11 +1,18 @@
 import React, {useState, useEffect} from 'react'
+import Axios from 'axios'
+import styled from 'styled-components'
+
+const AuthForm = styled.div`
+    width: 100px;
+    height: 200px;
+    background: blue;
+`;
 
 function Auth(){
 
     const getDataFromServer = () => {
-        fetch('/api/data', 'CONSOLE')
-        .then(res => {
-            console.log(res.data)
+        Axios.get(`/api/data/?connect=${'CONNECT'}`).then(res => {
+            console.log(res)
         }).catch(err => console.log(err))
     }
 
@@ -15,7 +22,9 @@ function Auth(){
 
     return (
         <div>
-            Auth Component
+            <AuthForm>
+                <input />
+            </AuthForm>
         </div>
     )
 }
