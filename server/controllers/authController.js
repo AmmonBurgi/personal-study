@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
 
 module.exports = {
-    registerUser: async(req, res) => {
+    register: async(req, res) => {
         const db = req.app.get('db');
         const {firstName, lastName, email, password} = req.body
 
@@ -17,9 +17,11 @@ module.exports = {
         req.session.user = newUser[0];
         res.status(201).send(req.session.user);
     },
-    login: (req, res) => {
+    login: async(req, res) => {
         const db = req.app.get('db')
         const {email, password} = req.body;
+
+        console.log(email, password)
 
         const user = await db.authentication.check_user(email);
         if(!user[0]){

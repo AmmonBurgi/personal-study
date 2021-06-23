@@ -4,7 +4,8 @@ const express = require('express'),
     session = require('express-session'),
     {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env,
     app = express(),
-    port = SERVER_PORT;
+    port = SERVER_PORT,
+    authCtrl = require('./controllers/authController')
 
     app.use(express.json());
 
@@ -14,6 +15,10 @@ const express = require('express'),
         secret: SESSION_SECRET,
         cookie: {maxAge: 1000 * 60 * 60 * 24}
     }));
+
+    // Authentication Endpoints VVV
+    app.post('/api/auth/login', authCtrl.login)
+    app.post('/api/auth/register', authCtrl.register)
 
     massive({
         connectionString: CONNECTION_STRING,

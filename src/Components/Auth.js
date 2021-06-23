@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {FormInput, FormTitle, FormButton} from './FormStyles';
 import styled from 'styled-components'
+import Axios from 'axios'
 
 const AuthComponent = styled.div`
     display: flex;
@@ -35,26 +36,59 @@ function Auth(){
         [password, setPassword] = useState(''),
         [toggleForm, setToggleForm] = useState(false)
 
+    const handleLogin = (e) => {
+        console.log(email, password)
+        Axios({
+            method: 'POST',
+            data: {
+                email,
+                password
+            },
+            url: '/api/auth/login',
+        })
+        .then(res => {
+            console.log(res.data)
+        }).catch(err => console.log(err))
+    };
+
     return (
         <AuthComponent>
             {toggleForm === false ? 
             (
-            <AuthForm>
+            <AuthForm onSubmit={handleLogin}>
                 <FormTitle>Login</FormTitle>
-                <FormInput type='email' onChange={(e) => setEmail(e.target.value)} />
-                <FormInput type='password' onChange={(e) => setPassword(e.target.value)} />
+                <FormInput 
+                value={email} 
+                type='email' 
+                onChange={(e) => setEmail(e.target.value)} />
+                <FormInput 
+                value={password} 
+                type='password' 
+                onChange={(e) => setPassword(e.target.value)} />
                 <AuthText>Click <b onClick={() => setToggleForm(true)}>HERE</b> to register!</AuthText>
-                <FormButton>Login</FormButton>
+                <FormButton type='submit' >Login</FormButton>
             </AuthForm>
             )
             :
             (
             <AuthForm>
                 <FormTitle>Register</FormTitle>
-                <FormInput type='email' onChange={(e) => setEmail(e.target.value)} />
-                <FormInput type='text' onChange={(e) => setFirstName(e.target.value)} />
-                <FormInput type='text' onChange={(e) => setLastName(e.target.value)} />
-                <FormInput type='password' onChange={(e) => setPassword(e.target.value)} />
+                <FormInput 
+                value={email} 
+                type='email' 
+                onChange={(e) => setEmail(e.target.value)} />
+                <FormInput 
+                value={firstName} 
+                type='text' 
+                onChange={(e) => setFirstName(e.target.value)} />
+                <FormInput 
+                value={lastName} 
+                type='text' 
+                onChange={(e) => setLastName(e.target.value)} />
+                <FormInput 
+                value={password} 
+                type='password' 
+                onChange={(e) => setPassword(e.target.value)} />
                 <AuthText>Click <b onClick={() => setToggleForm(false)}>HERE</b> to Login!</AuthText>
                 <FormButton>Register</FormButton>
             </AuthForm>
