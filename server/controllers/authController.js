@@ -14,6 +14,8 @@ module.exports = {
         let hash = bcrypt.hashSync(password, salt);
 
         const newUser = await db.authentication.register_user(email, firstName, lastName, hash);
+
+        console.log(newUser)
         req.session.user = newUser[0];
         res.status(201).send(req.session.user);
     },
@@ -24,7 +26,6 @@ module.exports = {
         console.log(email, password)
 
         const user = await db.authentication.check_user(email);
-        console.log(user)
         if(!user[0]){
             return res.status(401).send('Email or Password are not accepted!')
         }

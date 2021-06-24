@@ -29,7 +29,7 @@ const AuthText = styled.p`
     font-size: 1vw;
 `;
 
-function Auth(){
+function Auth(props){
     const [email, setEmail] = useState(''),
         [firstName, setFirstName] = useState(''),
         [lastName, setLastName] = useState(''),
@@ -45,6 +45,7 @@ function Auth(){
             },
             url: '/api/auth/login'
         }).then(res => {
+            props.history.push('/home')
             console.log(res)
         }).catch(err => {
             console.log(err.response)
@@ -63,6 +64,7 @@ function Auth(){
             },
             url: '/api/auth/register'
         }).then(res => {
+            props.history.push('/home')
             console.log(res.data)
         }).catch(err => {
             console.log(err.response)
@@ -77,10 +79,12 @@ function Auth(){
             <AuthForm onSubmit={handleLogin}>
                 <FormTitle>Login</FormTitle>
                 <FormInput 
+                placeholder='Email'
                 value={email} 
                 type='email' 
                 onChange={(e) => setEmail(e.target.value)} />
                 <FormInput 
+                placeholder='Password'
                 value={password} 
                 type='password' 
                 onChange={(e) => setPassword(e.target.value)} />
@@ -93,18 +97,22 @@ function Auth(){
             <AuthForm onSubmit={handleRegister}>
                 <FormTitle>Register</FormTitle>
                 <FormInput 
+                placeholder='Email'
                 value={email} 
                 type='email' 
                 onChange={(e) => setEmail(e.target.value)} />
                 <FormInput 
+                placeholder='First Name'
                 value={firstName} 
                 type='text' 
                 onChange={(e) => setFirstName(e.target.value)} />
-                <FormInput 
+                <FormInput
+                placeholder='Last Name' 
                 value={lastName} 
                 type='text' 
                 onChange={(e) => setLastName(e.target.value)} />
                 <FormInput 
+                placeholder='Password'
                 value={password} 
                 type='password' 
                 onChange={(e) => setPassword(e.target.value)} />
