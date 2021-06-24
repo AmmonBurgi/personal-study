@@ -24,6 +24,7 @@ module.exports = {
         console.log(email, password)
 
         const user = await db.authentication.check_user(email);
+        console.log(user)
         if(!user[0]){
             return res.status(401).send('Email or Password are not accepted!')
         }

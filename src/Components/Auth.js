@@ -36,20 +36,39 @@ function Auth(){
         [password, setPassword] = useState(''),
         [toggleForm, setToggleForm] = useState(false)
 
-    const handleLogin = (e) => {
-        console.log(email, password)
+    const handleLogin = () => {
         Axios({
             method: 'POST',
             data: {
                 email,
                 password
             },
-            url: '/api/auth/login',
-        })
-        .then(res => {
-            console.log(res.data)
-        }).catch(err => console.log(err))
+            url: '/api/auth/login'
+        }).then(res => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err.response)
+            alert(err.response.data)
+        });
     };
+
+    const handleRegister = () => {
+        Axios({
+            method: 'POST',
+            data: {
+                email,
+                firstName,
+                lastName,
+                password
+            },
+            url: '/api/auth/register'
+        }).then(res => {
+            console.log(res.data)
+        }).catch(err => {
+            console.log(err.response)
+            alert(err.response.data)
+        });
+    }
 
     return (
         <AuthComponent>
@@ -71,7 +90,7 @@ function Auth(){
             )
             :
             (
-            <AuthForm>
+            <AuthForm onSubmit={handleRegister}>
                 <FormTitle>Register</FormTitle>
                 <FormInput 
                 value={email} 
@@ -90,7 +109,7 @@ function Auth(){
                 type='password' 
                 onChange={(e) => setPassword(e.target.value)} />
                 <AuthText>Click <b onClick={() => setToggleForm(false)}>HERE</b> to Login!</AuthText>
-                <FormButton>Register</FormButton>
+                <FormButton type='submit'>Register</FormButton>
             </AuthForm>
             )
             }
