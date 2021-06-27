@@ -8,14 +8,17 @@ import './App.css'
 import 'normalize.css'
 
 const MainComponent = styled.div`
-  width: 88%;
+  width: 90%;
   height: 100%;
-  margin-left: 12%;
-  background: grey;
+  margin-left: 10%;
+  background: rgb(71,72,102);
 `;
 
 function App(props) {
-  console.log(props)
+
+  const navigateToAuth = () => {
+    props.history.push('/')
+  }
 
   return (
     <div className="App">
@@ -25,7 +28,7 @@ function App(props) {
       </>
       :
       <>
-        <NavBar />
+        <NavBar navigateToAuth={navigateToAuth} />
         <MainComponent>
           {routes}
         </MainComponent> 

@@ -23,8 +23,6 @@ module.exports = {
         const db = req.app.get('db')
         const {email, password} = req.body;
 
-        console.log(email, password)
-
         const user = await db.authentication.check_user(email);
         if(!user[0]){
             return res.status(401).send('Email or Password are not accepted!')
@@ -37,5 +35,9 @@ module.exports = {
         delete user[0].password
         req.session.user = user[0]
         res.status(202).send(req.session.user)
+    },
+    logout: ( req, res ) => {
+        req.session.destroy();
+        res.sendStatus(200);
     }
 }

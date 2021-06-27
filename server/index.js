@@ -19,6 +19,7 @@ const express = require('express'),
     // Authentication Endpoints VVV
     app.post('/api/auth/login', authCtrl.login)
     app.post('/api/auth/register', authCtrl.register)
+    app.get('/api/auth/logout', authCtrl.logout)
 
     massive({
         connectionString: CONNECTION_STRING,
