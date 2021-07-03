@@ -8,9 +8,9 @@ import './App.css'
 import 'normalize.css'
 
 const MainComponent = styled.div`
-  width: 90%;
+  width: 92%;
   height: 100%;
-  margin-left: 10%;
+  margin-left: 8%;
   background: rgb(71,72,102);
 `;
 

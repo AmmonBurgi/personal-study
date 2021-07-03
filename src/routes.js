@@ -2,7 +2,8 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Landing from './Components/Landing';
 import Auth from './Components/Auth';
-import CreateDeck from './Components/CreateDeck';
+import Create from './Components/Create/Create'
+import CreateDeck from './Components/Create/CreateDeck';
 import ChatRoom from './Components/ChatRoom';
 
 export default (

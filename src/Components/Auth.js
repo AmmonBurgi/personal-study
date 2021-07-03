@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {FormInput, FormTitle, FormButton} from './FormStyles';
+import {FormInput, FormTitle, FormButton} from './StyledComponents/FormStyles';
 import styled from 'styled-components'
 import Axios from 'axios'
 

@@ -12,7 +12,7 @@ const NavMain = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 10%;
+    width: 8%;
     height: 100%;
     min-height: 100vh;
     position: fixed;
@@ -38,17 +38,17 @@ function NavBar(props){
     return (
         <NavMain>
             <Link to='/home'>
-                <FaHome />
+                <FaHome className='nav-bar-icon' />
             </Link>
             <Link to='/create'>
-                <ImPlus />
+                <ImPlus className='nav-bar-icon' />
             </Link>
             <Link to='/chat-room'>
-                <BsChatFill />
+                <BsChatFill className='nav-bar-icon' />
             </Link>
-            <a onClick={handleLogout}>
-                <BiLogOut />
-            </a>
+            <button onClick={handleLogout}>
+                <BiLogOut className='nav-bar-icon' />
+            </button>
         </NavMain>
     )
 }
