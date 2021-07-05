@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SecondaryTitle, MainTitle, MainInput } from '../StyledComponents/mainStyles';
+import { SecondaryTitle, MainTitle, MainInput, TopicBorder, TopicTitle, MainButton } from '../StyledComponents/mainStyles';
 import styled from 'styled-components';
-import { FaTimes, FaCheck } from 'react-icons/fa';
+import { FaTimes, FaCheck, FaPlus } from 'react-icons/fa';
 
 const PopUp = styled.div`
     display: flex;
@@ -38,6 +38,10 @@ const CreateDeckMain = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    box-sizing: border-box;
 `;
 
 const ConfirmBox = styled.div`
@@ -79,6 +83,12 @@ function CreateDeck(props) {
             :
             null
             }
+
+            <MainTitle>{deckName} Deck</MainTitle>
+            <TopicBorder>
+                <TopicTitle>Cards</TopicTitle>
+                <FaPlus className='topic-icon' />
+            </TopicBorder>
         </CreateDeckMain>
     )
 };

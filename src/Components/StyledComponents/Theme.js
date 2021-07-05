@@ -6,5 +6,6 @@ export default {
     pBorder: 'rgb(49,101,138)',
     hBorder: 'rgb(60, 124, 170)',
     mainFontSize: '4vw',
-    sFontSize: '3vw'
+    sFontSize: '3vw',
+    tFontSize: '2.5vw'
 }
