@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 .App{
     height: 100vh;
     width: 100vw;
@@ -7,12 +9,26 @@
     padding: 0;
 }
 
+.App p, h1, h2, h3, button{
+    font-family: 'Fjalla One', sans-serif;
+    color: rgb(49,101,138)
+}
+
 b:hover{
     cursor: pointer;
 }
 
 
 .nav-bar-icon{
+    color: rgb(53, 110, 151);
     font-size: 2vw;
-    color: black;
+}
+.nav-bar-icon:hover{
+    color: rgb(60, 124, 170);
+    transition: ease-out .25s;
+}
+
+.pop-icons{
+    color: rgb(169,171,184);
+    font-size: 1.3vw;   
 }

@@ -19,6 +19,17 @@ const NavMain = styled.div`
     left: 0;
     top: 0;
     background: rgb(169,171,184);
+    border-right: solid rgb(49,101,138);
+`;
+
+const NoButton = styled.button`
+    background: transparent;
+    outline: none;
+    border: none;
+    &:hover {
+        cursor: pointer;
+        color: blue;
+    }
 `;
 
 function NavBar(props){
@@ -46,9 +57,9 @@ function NavBar(props){
             <Link to='/chat-room'>
                 <BsChatFill className='nav-bar-icon' />
             </Link>
-            <button onClick={handleLogout}>
+            <NoButton onClick={handleLogout}>
                 <BiLogOut className='nav-bar-icon' />
-            </button>
+            </NoButton>
         </NavMain>
     )
 }
