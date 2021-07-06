@@ -83,11 +83,10 @@ function CreateDeck(props) {
             :
             null
             }
-
             <MainTitle>{deckName} Deck</MainTitle>
             <TopicBorder>
                 <TopicTitle>Cards</TopicTitle>
-                <FaPlus className='topic-icon' />
+                <FaPlus onClick={() => props.history.push('/create/deck/cards')} className='topic-icon' />
             </TopicBorder>
         </CreateDeckMain>
     )

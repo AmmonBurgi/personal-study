@@ -6,11 +6,13 @@ import Create from './Components/Create/Create'
 import CreateDeck from './Components/Create/CreateDeck';
 import CreateTopic from './Components/Create/CreateTopic';
 import ChatRoom from './Components/ChatRoom';
+import Cards from './Components/Create/Cards';
 
 export default (
     <Switch>
         <Route exact path='/' component={Auth} />
         <Route path='/Home' component={Landing} />
+        <Route path='/create/deck/cards' component={Cards} />
         <Route path='/create/deck' component={CreateDeck} />
         <Route path='/create/topic' component={CreateTopic} />
         <Route path='/create' component={Create} />
