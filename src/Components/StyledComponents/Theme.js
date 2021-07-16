@@ -7,5 +7,7 @@ export default {
     hBorder: 'rgb(60, 124, 170)',
     mainFontSize: '4vw',
     sFontSize: '3vw',
-    tFontSize: '2.5vw'
+    tFontSize: '2.5vw',
+    mainText: '1.8vw',
+    subText: '2.2vw',
 }

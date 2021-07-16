@@ -11,7 +11,11 @@
 
 .App p, h1, h2, h3, button{
     font-family: 'Fjalla One', sans-serif;
-    color: rgb(49,101,138)
+    color: rgb(49,101,138);
+    transition: .5s
+}
+.App button:hover{
+    color:rgb(60, 124, 170);
 }
 
 b:hover{
@@ -42,4 +46,11 @@ b:hover{
 .topic-icon:hover{
     color: rgb(60, 124, 170);
     cursor: pointer;
+}
+
+#flip-arrow{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    backface-visibility: hidden;
 }

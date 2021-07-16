@@ -30,6 +30,20 @@ export const MainInput = styled.input`
     width: 50%;
 `;
 
+export const CardTextArea = styled.textarea`
+    width: 100%;
+    height: 70%;
+    z-index: 100;
+    resize: none;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    font-size: 1.3vw;
+    background: ${props => props.theme.pBorder};
+    outline: none;
+    color: ${props => props.theme.sBack};
+    padding: 1%;
+`;
+
 export const TopicBorder = styled.div`
     border-bottom: solid ${props => props.theme.pBorder};
     width: 100%;
@@ -48,4 +62,15 @@ transitions: .5s;
     border-radius: 5px;
     cursor: pointer;
 }
+`;
+
+export const MainText = styled.p`
+    margin-top: 0;
+    font-size: ${props => props.theme.mainText};
+`;
+
+export const SubText = styled.p`
+    margin-top: 0;
+    font-size: ${props => props.theme.subText};
+    text-transform: uppercase;
 `;
